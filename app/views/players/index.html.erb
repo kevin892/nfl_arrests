@@ -1,0 +1,12 @@
+<h1>Players</h1>
+<%= form_tag "/search", method: :get do %>
+<%= text_field_tag :search_term %>
+
+<%= submit_tag "search" %>
+<% end %>
+
+<ul>
+  <% @players.each do |player| %>
+  <li><%= link_to player.name, player_path(player) %></li>
+  <% end %>
+</ul>

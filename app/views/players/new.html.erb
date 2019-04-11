@@ -1,0 +1,13 @@
+<h1>New Player</h1>
+
+<%@player.errors.full_messages.each do |message| %>
+<p><%=message%></p>
+<%end%>
+
+<%= form_for(@player) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :team %>
+<%= f.collection_select :team_id, @teams, :id, :name %>
+<%=f.submit "Add Player" %>
+<% end %>
