@@ -1,2 +1,7 @@
-<h1>Teams#edit</h1>
-<p>Find me in app/views/teams/edit.html.erb</p>
+<%= form_for(@team) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :city %>
+<%= f.text_field :city%>
+<%=f.submit "Edit Team" %>
+<% end %>

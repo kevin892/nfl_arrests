@@ -1,0 +1,8 @@
+
+<%= form_for(@touchdown) do |f| %>
+<%= f.label :number %>
+<%= f.number_field :number %>
+<%= f.label :player %>
+<%= f.collection_select :player_id, @players, :id, :name %>
+<%=f.submit "Add touchdowns" %>
+<% end %>

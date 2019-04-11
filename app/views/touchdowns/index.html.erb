@@ -1,0 +1,10 @@
+<h1>Touchdown Hall of Fame!!!</h1>
+
+<ul>
+  <% @touchdowns.each do |touchdown| %>
+  <li>Player Name: <%= touchdown.player.name %> Touchdowns: <%= touchdown.number %></li>
+  <% end %>
+</ul>
+
+
+<%= button_to "Add a touchdown", new_touchdown_path, method: :get %>

@@ -1,2 +1,7 @@
-<h1>Teams#show</h1>
-<p>Find me in app/views/teams/show.html.erb</p>
+<h1>Team name: <%= @team.name %></h1>
+<h2>Team City: <%= @team.city %></h2>
+
+
+<%= button_to "All Teams", teams_path, method: :get %>
+<%= button_to "Delete", team_path, method: :delete %>
+<%= button_to "Edit", edit_team_path, method: :get %>

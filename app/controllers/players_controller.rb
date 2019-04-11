@@ -1,4 +1,5 @@
 require "pry"
+require 'rest-client'
 
 class PlayersController < ApplicationController
   before_action :find_player, only:  [:show, :edit, :update, :destroy]
@@ -27,6 +28,7 @@ class PlayersController < ApplicationController
   end
 
   def edit
+    @teams = Team.all
   end
 
   def update
@@ -35,12 +37,20 @@ class PlayersController < ApplicationController
   end
 
   def show
+    @url = "http://nflarrest.com/api/v1/player"
+    response = RestClient.get(@url)
+    @data = JSON.parse(response)
+      @names_array = @data.map do |details|
+        details["Name"]
+      end
   end
 
   def destroy
     @player.delete
     redirect_to players_path
   end
+
+
 
   private
 

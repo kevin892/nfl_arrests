@@ -1,2 +1,7 @@
-<h1>Players#edit</h1>
-<p>Find me in app/views/players/edit.html.erb</p>
+<%= form_for(@player) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :team %>
+<%= f.collection_select :team_id, @teams, :id, :name %>
+<%=f.submit "Edit Player" %>
+<% end %>
